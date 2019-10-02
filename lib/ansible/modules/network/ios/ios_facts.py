@@ -43,7 +43,7 @@ options:
       - When supplied, this argument restricts the facts collected
          to a given subset.
       - Possible values for this argument include
-         C(all), C(min), C(hardware), C(config), and C(interfaces).
+         C(all), C(min), C(hardware), C(config), C(interfaces) and C(inventory) .
       - Specify a list of values to include a larger subset.
       - Use a value with an initial C(!) to collect all facts except that subset.
     required: false
@@ -203,6 +203,12 @@ ansible_net_neighbors:
       CDP and LLDP neighbor data is present on one port, CDP is preferred.
   returned: when interfaces is configured
   type: dict
+  
+# inventory
+ansible_net_inventory:
+  description: All inventory cards on the device
+  return: when inventory is configured
+  type: list
 """
 
 from ansible.module_utils.basic import AnsibleModule
